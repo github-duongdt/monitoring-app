@@ -1,0 +1,25 @@
+{
+  "name": "monitoring-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-duongdt/monitoring-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/github-duongdt/monitoring-app/issues"
+  },
+  "homepage": "https://github.com/github-duongdt/monitoring-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jscharting": "^3.0.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
