@@ -13,7 +13,9 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">PV System Monitoring</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <span class="ml-xl-0">
+                <button class="btn btn-link btn-sm order-1 order-lg-0 ml-xl-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            </span>
             <!-- Navbar Search-->
             <!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -24,24 +26,27 @@
                 </div>
             </form> -->
             <!-- Navbar-->
-            <ul class="navbar-nav ml-xl-auto ml-md-0">
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown d-xs-block d-sm-block d-md-none">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-info"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a href="https://usth.edu.vn/" target="_blank" class="dropdown-item"><i class="fas fa-university" style="font-size:inherit"></i> USTH</a>
+                        <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="dropdown-item"><i class="fab fab fa-github" style="font-size:inherit"></i> Github</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="dropdown-item"><i class="fas fa-mail-bulk" style="font-size:inherit"></i> Gmail</a>
+                        <!-- <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a> -->
                     </div>
-                </li> -->
-                <li class="nav-item">
-                    <a href="https://usth.edu.vn/" target="_blank" class="nav-link"><i class="fas fa-university" style="font-size:26px"></i> USTH</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="nav-link"><i class="fab fab fa-github" style="font-size:24px"></i> Github</a>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://usth.edu.vn/" target="_blank" class="nav-link"><i class="fas fa-university" style="font-size:inherit"></i> USTH</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="nav-link"><i class="fas fa-mail-bulk" style="font-size:22px"></i> Gmail</a>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="nav-link"><i class="fab fab fa-github" style="font-size:inherit"></i> Github</a>
+                </li>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="nav-link"><i class="fas fa-mail-bulk" style="font-size:inherit"></i> Gmail</a>
                 </li>
             </ul>
         </nav>
@@ -135,9 +140,9 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-line mr-1"></i>
-                                <span style="font-size: 1.5em;">Line Graph</span>
-                                <span class="dropdown m-5">
-                                    <button type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">Choose a parameter</button>
+                                <span style="font-size: 1.3em;">Line Graph</span>
+                                <div class="dropdown ml-auto ml-md-3 d-inline-block">
+                                    <button type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary btn-md" data-toggle="dropdown">Choose a parameter</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Temperature</button>
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">GHI</button>
@@ -145,7 +150,20 @@
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Current</button>
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Power</button>
                                     </div>
-                                </span>
+                                </div>
+                                <div class="ml-auto ml-md-3 d-inline d-md-inline-block">
+                                    <button id="toggleStop" class="btn btn-secondary"><i class="fas fa-pause"></i> Stop</button>
+                                </div>
+                                <div class="dropdown ml-auto ml-md-3 d-inline d-md-inline-block">
+                                    <button type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-secondary d-inline-block btn-md" data-toggle="dropdown">Number of records</button>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-nrec">10</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-nrec">20</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-nrec">30</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-nrec">40</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-nrec">50</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body"><div id="chart-div" style="width: 100%; height: 70vh;"></div></div>
                             <div class="card-footer small text-muted">Updated in real-time</div>

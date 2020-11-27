@@ -2,7 +2,7 @@ capitalize = (str) => {
   return str[0].toUpperCase() + str.slice(1, str.length)
 }
 
-var param = 'temperature', n_of_rec = 10,
+var param = 'temperature', n_of_rec = 20, paused = false,
   unit = {
     temperature: '\u{2103}',
     ghi: 'W/m' + '2'.sup(),
@@ -34,7 +34,7 @@ var chart = JSC.chart(
           fontFamily: 'sans-serif',
           fontSize: 20,
         },
-        offset: '0, -20'
+        offset: '0, -20',
       },
       position: 'center',
     },
@@ -49,66 +49,68 @@ var chart = JSC.chart(
       tooltip: '%seriesName:<b>%yValue<b/>'
     },
     margin_right: 20,
+    margin_top: 20,
     animation: { duration: 640 },
-    toolbar: {
-      margin: 5,
-      items: {
-        Stop: {
-          type: 'option',
-          icon_name: 'system/default/pause',
-          boxVisible: true,
-          label: {
-            text: 'Stop',
-            style: {
-              fontSize: 20,
-              fontFamily: 'sans-serif'
-            }
-          },
-          events: { change: playPause },
-          states_select: {
-            icon_name: 'system/default/play',
-            label_text: 'Continue'
-          },
-          position: 'top left',
-          height: 30,
-          margin_bottom: 18,
-          tooltip: 'Stop/Continue real-time update'
-        },
-        Nrec: {
-          type: 'select',
-          items: '10, 20, 30, 40, 50',
-          defaultItem: {
-            label_style: {
-              fontFamily: 'sans-serif',
-              fontSize: 20
-            },
-            height: 30,
-            margin_top: 5,
-            outline: {
-              color: 'rgba(0,0,0,0.3)',
-              dashStyle: 'Solid',
-              width: 1
-            }
-          },
-          events_change: (val) => {
-            n_of_rec = parseInt(val);
-            updateData(param, n_of_rec);
-          },
-          label: {
-            style: {
-              fontSize: 20,
-              fontFamily: 'sans-serif',
-            },
-            text: 'Number of records',
-          },
-          position: 'top left',
-          margin_left: 45,
-          margin_bottom: 18,
-          width: 200,
-          height: 30,
-        },
-      },
-    },
+    // toolbar: {
+    //   margin: 5,
+    //   items: {
+    //     Stop: {
+    //       type: 'option',
+    //       icon_name: 'system/default/pause',
+    //       boxVisible: true,
+    //       label: {
+    //         text: 'Stop',
+    //         style: {
+    //           fontSize: 20,
+    //           fontFamily: 'sans-serif',
+    //           verticalAlign: 'center'
+    //         }
+    //       },
+    //       events: { change: playPause },
+    //       states_select: {
+    //         icon_name: 'system/default/play',
+    //         label_text: 'Continue'
+    //       },
+    //       position: '0,0',
+    //       height: 30,
+    //       margin_bottom: 18,
+    //       tooltip: 'Stop/Continue real-time update'
+    //     },
+    //     Nrec: {
+    //       type: 'select',
+    //       items: '10, 20, 30, 40, 50',
+    //       defaultItem: {
+    //         label_style: {
+    //           fontFamily: 'sans-serif',
+    //           fontSize: 20
+    //         },
+    //         height: 30,
+    //         margin_top: 5,
+    //         outline: {
+    //           color: 'rgba(0,0,0,0.3)',
+    //           dashStyle: 'Solid',
+    //           width: 1
+    //         }
+    //       },
+    //       events_change: (val) => {
+    //         n_of_rec = parseInt(val);
+    //         updateData(param, n_of_rec);
+    //       },
+    //       label: {
+    //         style: {
+    //           fontSize: 20,
+    //           fontFamily: 'sans-serif',
+    //         },
+    //         text: 'Number of records',
+    //       },
+    //       position: 'top left',
+    //       margin_left: 70,
+    //       margin_bottom: 18,
+    //       width: 200,
+    //       height: 30,
+    //     },
+    //   },
+    // },
     xAxis: {
       scale_type: 'time',
       label: {
@@ -184,7 +186,7 @@ updateData = (param, n_of_rec) => {
 };
 
 function playPause(val) {
-  if (val === true) {
+  if (val === false) {
     clearInterval(INTERVAL_ID);
   } else {
     start();
@@ -200,16 +202,32 @@ function start() {
 }
 
 (function ($) {
+  $(document).ready(() => {
+    updateData(param, n_of_rec);
+    start();
+    $(".dropdown-item.btn-param:contains(Temperature)").addClass('active');
+    $(".dropdown-item.btn-nrec:contains(20)").addClass('active');
+  });
+
   $('.dropdown-item.btn-param').on('click', function () {
-    $(this).siblings().removeClass('active')
+    $(this).siblings().removeClass('active');
     $(this).addClass('active');
+    console.log($(this));
     param = $(this).text().toLowerCase();
     updateData(param, n_of_rec);
   });
 
-  $(document).ready(() => {
+  $(".dropdown-item.btn-nrec").on('click', function () {
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    n_of_rec = $(this).text();
     updateData(param, n_of_rec);
-    start();
-    $(".dropdown-item.btn-param:contains(Temperature)").addClass('active')
+  });
+
+  $("#toggleStop").on('click', function () {
+    var html = paused ? '<i class="fas fa-pause"></i> Stop' : '<i class="fas fa-play"></i> Continue';
+    playPause(paused);
+    $(this).html(html);
+    paused = paused ? false : true;
   });
 })(jQuery);
