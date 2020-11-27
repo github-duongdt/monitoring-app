@@ -14,7 +14,10 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">PV System Monitoring</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <span class="ml-xl-0">
+                <button class="btn btn-link btn-sm order-1 order-lg-0 ml-xl-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            </span>
+            
             <!-- Navbar Search-->
             <!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -25,24 +28,27 @@
                 </div>
             </form> -->
             <!-- Navbar-->
-            <ul class="navbar-nav ml-xl-auto ml-md-0">
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown d-xs-block d-sm-block d-md-none">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-info"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a href="https://usth.edu.vn/" target="_blank" class="dropdown-item"><i class="fas fa-university" style="font-size:inherit"></i> USTH</a>
+                        <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="dropdown-item"><i class="fab fab fa-github" style="font-size:inherit"></i> Github</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="dropdown-item"><i class="fas fa-mail-bulk" style="font-size:inherit"></i> Gmail</a>
+                        <!-- <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a> -->
                     </div>
-                </li> -->
-                <li class="nav-item">
-                    <a href="https://usth.edu.vn/" target="_blank" class="nav-link"><i class="fas fa-university" style="font-size:26px"></i> USTH</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="nav-link"><i class="fab fab fa-github" style="font-size:24px"></i> Github</a>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://usth.edu.vn/" target="_blank" class="nav-link"><i class="fas fa-university" style="font-size:inherit"></i> USTH</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="nav-link"><i class="fas fa-mail-bulk" style="font-size:22px"></i> Gmail</a>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://github.com/github-duongdt/monitoring-app" target="_blank" class="nav-link"><i class="fab fab fa-github" style="font-size:inherit"></i> Github</a>
+                </li>
+                <li class="nav-item d-none d-lg-block">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn" target="_blank" class="nav-link"><i class="fas fa-mail-bulk" style="font-size:inherit"></i> Gmail</a>
                 </li>
             </ul>
         </nav>

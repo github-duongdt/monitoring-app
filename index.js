@@ -7,7 +7,8 @@ const {
 } = require('./api.js');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8000,
+    host = process.env.HOST || 'localhost';
 
 app.use(express.static(__dirname + '/static'));
 app.use(express.static(__dirname + '/node_modules'));
@@ -42,6 +43,6 @@ app.get('/ajax/chart', (req, res) => {
     Lastest_Records(attr, limit).then(data => res.json(data)).catch(reason => res.status(400).sendFile('400.html'));
 });
 
-app.listen(port, 'localhost', () => {
-    console.log(`Listening on  http://localhost:${port}`)
+app.listen(port, host, () => {
+    console.log(`Listening on  http://${host}:${port}`)
 });
