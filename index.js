@@ -9,7 +9,9 @@ const {
 const app = express();
 const port = 8080;
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/node_modules'));
+
 
 app.get('/', (req, res) => {
     res.sendFile('index.html');
