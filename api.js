@@ -1,9 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const db = require('./db-keys.json')
 
-const sequelize = new Sequelize('nodeDB', 'root', 'mysql020820', {
-    host: 'localhost',
+const sequelize = new Sequelize(db.dbname, db.username, db.password, {
+    host: db.host,
     dialect: 'mysql',
-    timezone: '+07:00'
+    timezone: 'Asia/Ho_Chi_Minh',
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10e3,
+        acquire: 10e3,
+    }
 });
 
 const Data = sequelize.define('Data', {
@@ -44,8 +51,8 @@ Lastest_Records = async (attr, limit) => {
         order: [['TimeStamp', 'DESC']]
     }).then((rows) => {
         _lastest_records = rows.map((item) => {
-            newitem = item.dataValues
-            newitem.TimeStamp = item.TimeStamp.toLocaleString({ timezone: 'Asia/Ho_Chi_Minh' })
+            newitem = item.dataValues;
+            newitem.TimeStamp = item.TimeStamp;
             return newitem
         });
     }).catch(reason => console.log(reason));

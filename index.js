@@ -31,16 +31,16 @@ app.get('/api/create', (req, res) => {
             power: parseFloat(power)
         })
     }).then(() => res.status(200).send('Sucess'))
-        .catch(msg => res.send(400).sendFile('400.html'));
+        .catch(msg => res.send(500).send('Internal server error'));
 });
 
 app.get('/ajax/table', (req, res) => {
-    AllData().then(data => res.json(data)).catch(reason => res.status(400).sendFile('400.html'));
+    AllData().then(data => res.json(data)).catch(reason => res.status(500).send('Internal server error'));
 });
 
 app.get('/ajax/chart', (req, res) => {
     const attr = req.query.param, limit = parseInt(req.query.limit);
-    Lastest_Records(attr, limit).then(data => res.json(data)).catch(reason => res.status(400).sendFile('400.html'));
+    Lastest_Records(attr, limit).then(data => res.json(data)).catch(reason => res.status(500).send('Internel server error'));
 });
 
 app.listen(port, host, () => {

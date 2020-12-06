@@ -169,12 +169,24 @@ updateData = (param, n_of_rec) => {
     },
     dataType: 'json',
     success: (data) => {
+      for (let ind = 0; ind < data.length - 2; ind++) {
+        if (new Date(data[ind + 1].TimeStamp) - new Date(data[ind].TimeStamp) < -24 * 60 * 60e3) {
+          data.splice(ind + 1);
+          break;
+        }
+        else if (new Date(data[ind + 1].TimeStamp) - new Date(data[ind].TimeStamp) < -60e3) {
+          var newRow = { TimeStamp: new Date(new Date(data[ind].TimeStamp).getTime() - 30e3) };
+          newRow[param] = null;
+          data.splice(ind + 1, 0, newRow);
+        }
+      };
+      console.log(data);
       chart.series([{
         name: param === 'ghi' ? param.toUpperCase() : capitalize(param),
         points: data.map((row) => {
-          return [row.TimeStamp, row[param]]
+          return [row.TimeStamp.toLocaleString({ timezone: 'Asia/Ho_Chi_Minh' }), row[param]]
         }),
-        emptyPointMode: 'ignore'
+        emptyPointMode: 'default'
       }]);
       chart.options({
         yAxis_label_text: (param === 'ghi' ? param.toUpperCase() : capitalize(param)) + ` (${unit[param]})`,
