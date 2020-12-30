@@ -33,10 +33,9 @@ $(document).ready(function () {
       columns: [
         { data: "TimeStamp", title: "Time Stamp", width: "20%" },
         { data: "temperature", title: "Temperature", width: "16%" },
+        { data: "humidity", title: "Humidity", width: "16%" },
+        { data: 'illuminance', title: "Illuminance", width: "16%" },
         { data: "ghi", title: "GHI", width: "16%" },
-        { data: "voltage", title: "Voltage", width: "16%" },
-        { data: 'current', title: "Current", width: "16%" },
-        { data: 'power', title: "Power", width: "16%" }
       ]
     }
   );

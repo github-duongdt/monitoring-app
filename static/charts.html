@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>PV System Monitoring</title>
+        <title>Line Graph of data</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">PV System Monitoring</a>
+            <a class="navbar-brand" href="index.html">Solar Irradiance</a>
             <span class="ml-xl-0">
                 <button class="btn btn-link btn-sm order-1 order-lg-0 ml-xl-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             </span>
@@ -116,8 +116,8 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Have a nice day!!</div>
-                        Bonne journée!!
+                        <div class="small">Group Project</div>
+                        USTH 2020-2021
                     </div>
                 </nav>
             </div>
@@ -126,7 +126,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">Charts</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Display</a></li>
                             <li class="breadcrumb-item active">Charts</li>
                         </ol>
                         <div class="card mb-4">
@@ -134,7 +134,7 @@
                                 <!-- Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
                                 <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
                                 . -->
-                                This page displays the recorded values of <em><strong>Temperature</strong></em>, <strong><em>GHI</em></strong> (Global Horizontal Irradiance), <em><strong>Power output</strong></em> of PV system, etc. in simple line graph. The graph should be updated in real-time.
+                                This page displays the recorded values of <em><strong>Temperature</strong></em>, <em><strong>Humidity</strong></em>, <strong><em>GHI</em></strong> (Global Horizontal Irradiance) and <em><strong>Illuminance</strong></em> in simple line graph. The graph should be updated in real-time.
                             </div>
                         </div>
                         <div class="card mb-4">
@@ -145,10 +145,9 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary btn-md" data-toggle="dropdown">Choose a parameter</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Temperature</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Humidity</button>
                                         <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">GHI</button>
-                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Voltage</button>
-                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Current</button>
-                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Power</button>
+                                        <button type="button"  tabindex="0" role="menuitem" class="dropdown-item btn-param">Illuminance</button>
                                     </div>
                                 </div>
                                 <div class="ml-auto ml-md-3 d-inline d-md-inline-block">
@@ -195,7 +194,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; PV System Monitoring 2020</div>
+                            <!-- <div class="text-muted">Copyright &copy; PV System Monitoring 2020</div> -->
                             <!-- <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

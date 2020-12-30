@@ -6,9 +6,8 @@ var param = 'temperature', n_of_rec = 20, paused = false,
   unit = {
     temperature: '\u{2103}',
     ghi: 'W/m' + '2'.sup(),
-    current: 'A',
-    voltage: 'V',
-    power: 'W'
+    illuminance: 'lux',
+    humidity: '%',
   };
 
 var chart = JSC.chart(
@@ -50,7 +49,7 @@ var chart = JSC.chart(
     },
     margin_right: 20,
     margin_top: 20,
-    animation: { duration: 640 },
+    animation: { duration: 1000 },
     // toolbar: {
     //   margin: 5,
     //   items: {
