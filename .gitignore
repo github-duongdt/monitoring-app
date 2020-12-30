@@ -2,3 +2,4 @@ node_modules/
 static/logo USTH 2.png
 test.js
 db-keys.json
+.vscode/
