@@ -49,7 +49,7 @@ var chart = JSC.chart(
     },
     margin_right: 20,
     margin_top: 20,
-    animation: { duration: 1000 },
+    animation: { duration: 2000 },
     // toolbar: {
     //   margin: 5,
     //   items: {
