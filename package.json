@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "MODE='PRO' HOST='0.0.0.0' PORT=8080 node index.js",
-    "dev": "MODE='DEV' HOST='192.168.0.129' nodemon index.js"
+    "start": "MODE='PRO' HOST='0.0.0.0' PORT=8000 node index.js",
+    "dev": "MODE='DEV' HOST='192.168.1.10' PORT=8000 nodemon index.js"
   },
   "repository": {
     "type": "git",
