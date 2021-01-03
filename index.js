@@ -28,38 +28,47 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/create', (req, res) => {
-    var temp = req.query.temperature, humidity = req.query.humidity,
-        ghi = req.query.ghi, illuminance = req.query.illuminance;
-
-    sequelize.sync().then(() => {
-        return table.create({
-            temperature: parseFloat(temp),
-            humidity: parseFloat(humidity),
-            illuminance: parseFloat(illuminance),
-            ghi: parseFloat(ghi),
-        })
-    }).then(() => res.status(200).send('Sucess'))
-        .catch(msg => res.send(500).sendFile('500.html'));
+    var keys = ['temperature', 'humidity', 'ghi', 'illuminance'], newRecord = {}
+    invalid = false;
+    for (const key of keys) {
+        if (isNaN(parseFloat(req.query[key]))) {
+            invalid = true;
+            break;
+        } else {
+            newRecord[key] = parseFloat(req.query[key]);
+        }
+    }
+    if (invalid) {
+        res.sendStatus(400);
+    } else {
+        sequelize.sync().then(() => {
+            return table.create(newRecord)
+        }).then(() => res.status(200).send('Sucess'))
+            .catch(msg => {
+                console.log(msg);
+                res.sendStatus(500);
+            });
+    }
 });
 
 app.get('/api/delete', (req, res) => {
     var key = req.query.key;
     sequelize.sync().then(() => {
         Drop(table, key).then(() => res.status(200).send('Dropped'))
-            .catch(() => res.sendStatus(403));
+            .catch(() => res.sendStatus(401));
     });
 });
 
 app.get('/ajax/table', (req, res) => {
     sequelize.sync().then(() => {
-        AllData(table).then(data => res.json(data)).catch(reason => res.status(500).sendFile('500.html'));
+        AllData(table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
     }).catch((reason) => console.log(reason));
 });
 
 app.get('/ajax/chart', (req, res) => {
     const attr = req.query.param, limit = parseInt(req.query.limit);
     sequelize.sync().then(() => {
-        Lastest_Records(attr, limit, table).then(data => res.json(data)).catch(reason => res.status(500).sendFile('500.html'));
+        Lastest_Records(attr, limit, table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
     }).catch((reason) => console.log(reason));
 });
 
