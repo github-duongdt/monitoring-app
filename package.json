@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "MODE='PRO' HOST='0.0.0.0' PORT=8080 node index.js",
-    "dev": "MODE='DEV' nodemon index.js"
+    "dev": "MODE='DEV' HOST='192.168.0.129' nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "jscharting": "^3.0.1",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
     "sequelize": "^6.3.5"
   }
 }
