@@ -28,27 +28,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/create', (req, res) => {
-    var keys = ['temperature', 'humidity', 'ghi', 'illuminance'], newRecord = {}
-    invalid = false;
-    for (const key of keys) {
-        if (isNaN(parseFloat(req.query[key]))) {
-            invalid = true;
-            break;
-        } else {
-            newRecord[key] = parseFloat(req.query[key]);
-        }
+    var newRecord = {};
+    for (const key of Object.keys(req.query)) {
+        newRecord[key] = parseFloat(req.query[key]);
     }
-    if (invalid) {
-        res.sendStatus(400);
-    } else {
-        sequelize.sync().then(() => {
-            return table.create(newRecord)
-        }).then(() => res.status(200).send('Sucess'))
-            .catch(msg => {
-                console.log(msg);
-                res.sendStatus(500);
-            });
-    }
+    sequelize.sync().then(() => {
+        return table.create(newRecord)
+    }).then(() => res.status(200).send('Sucess'))
+        .catch(msg => {
+            console.log(msg);
+            res.sendStatus(500);
+        });
 });
 
 app.get('/api/delete', (req, res) => {
@@ -61,15 +51,15 @@ app.get('/api/delete', (req, res) => {
 
 app.get('/ajax/table', (req, res) => {
     sequelize.sync().then(() => {
-        AllData(table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
-    }).catch((reason) => console.log(reason));
+        AllData(table).then(data => res.json(data)).catch(msg => res.sendStatus(500));
+    }).catch((msg) => console.log(msg));
 });
 
 app.get('/ajax/chart', (req, res) => {
     const attr = req.query.param, limit = parseInt(req.query.limit);
     sequelize.sync().then(() => {
-        Lastest_Records(attr, limit, table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
-    }).catch((reason) => console.log(reason));
+        Lastest_Records(attr, limit, table).then(data => res.json(data)).catch(msg => res.sendStatus(500));
+    }).catch((msg) => console.log(msg));
 });
 
 app.listen(port, host, () => {
