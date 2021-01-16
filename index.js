@@ -1,8 +1,6 @@
 const express = require('express');
 const {
     sequelize,
-    MainTable,
-    TestTable,
     AllData,
     Lastest_Records,
     Drop,
@@ -11,13 +9,13 @@ const {
 const app = express();
 const port = process.env.PORT || 8000,
     host = process.env.HOST || 'localhost',
-    mode = process.env.MODE;
+    mode = process.env.MODE || 'DEV';
 
 if (mode === "DEV") {
-    table = TestTable;
+    table = require('./api.js').TestTable;
 }
 else if (mode === "PRO") {
-    table = MainTable;
+    table = require('./api.js').MainTable;
 }
 
 app.use(express.static(__dirname + '/static'));
@@ -41,7 +39,7 @@ app.get('/api/create', (req, res) => {
     if (invalid) {
         res.sendStatus(400);
     } else {
-        sequelize.sync().then(() => {
+        table.sync().then(() => {
             return table.create(newRecord)
         }).then(() => res.status(200).send('Sucess'))
             .catch(msg => {
@@ -53,21 +51,21 @@ app.get('/api/create', (req, res) => {
 
 app.get('/api/delete', (req, res) => {
     var key = req.query.key;
-    sequelize.sync().then(() => {
+    table.sync().then(() => {
         Drop(table, key).then(() => res.status(200).send('Dropped'))
             .catch(() => res.sendStatus(401));
     });
 });
 
 app.get('/ajax/table', (req, res) => {
-    sequelize.sync().then(() => {
+    table.sync().then(() => {
         AllData(table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
     }).catch((reason) => console.log(reason));
 });
 
 app.get('/ajax/chart', (req, res) => {
     const attr = req.query.param, limit = parseInt(req.query.limit);
-    sequelize.sync().then(() => {
+    table.sync().then(() => {
         Lastest_Records(attr, limit, table).then(data => res.json(data)).catch(reason => res.sendStatus(500));
     }).catch((reason) => console.log(reason));
 });

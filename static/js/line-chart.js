@@ -137,26 +137,8 @@ var chart = JSC.chart(
         }
       }
     },
-    // series: [
-    //   {
-    //     name: 'Purchases',
-    //     points: [
-    //       ['1/1/2020', 29.9],
-    //       ['1/2/2020', 71.5],
-    //       ['1/3/2020', 106.4],
-    //       ['1/6/2020', 129.2],
-    //       ['1/7/2020', 144.0],
-    //       ['1/8/2020', 176.0]
-    //     ],
-    //     emptyPointMode: 'ignore'
-    //   }
-    // ]
   }
 );
-
-/**
- * Adds a data point to the chart series.
- */
 
 updateData = (param, n_of_rec) => {
   jQuery.ajax({
@@ -192,7 +174,7 @@ updateData = (param, n_of_rec) => {
         title_label_text: (param === 'ghi' ? param.toUpperCase() + ' Average: %average ' : capitalize(param) + ' Average: %average ') + `${unit[param]}`
       })
     },
-    error: (msg) => alert(msg)
+    error: (msg) => alert('Failed to update chart')
   })
 };
 
