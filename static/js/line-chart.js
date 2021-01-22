@@ -13,7 +13,7 @@ var param = 'temperature', n_of_rec = 20, paused = false,
 var chart = JSC.chart(
   'chart-div',
   {
-    debug: true,
+    debug: false,
     legend: {
       position: 'inside top right',
       defaultEntry: {
@@ -205,7 +205,6 @@ function start() {
   $('.dropdown-item.btn-param').on('click', function () {
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
-    console.log($(this));
     param = $(this).text().toLowerCase();
     updateData(param, n_of_rec);
   });
