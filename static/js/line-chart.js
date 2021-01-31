@@ -13,7 +13,7 @@ var param = 'temperature', n_of_rec = 20, paused = false,
 var chart = JSC.chart(
   'chart-div',
   {
-    debug: true,
+    debug: false,
     legend: {
       position: 'inside top right',
       defaultEntry: {
