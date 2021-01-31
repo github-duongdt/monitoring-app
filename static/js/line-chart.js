@@ -205,7 +205,6 @@ function start() {
   $('.dropdown-item.btn-param').on('click', function () {
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
-    console.log($(this));
     param = $(this).text().toLowerCase();
     updateData(param, n_of_rec);
   });
