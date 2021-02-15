@@ -78,16 +78,13 @@
               Github</a
             >
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn"
+              href="mailto:duongdt.bi9076@st.usth.edu.vn"
               target="_blank"
               class="dropdown-item"
-              ><i class="fas fa-mail-bulk" style="font-size: inherit"></i>
-              Gmail</a
             >
-            <!-- <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a> -->
+            <i class="fas fa-mail-bulk" style="font-size: inherit"></i>
+            Email
+          </a>
           </div>
         </li>
         <li class="nav-item d-none d-lg-block">
@@ -107,12 +104,13 @@
         </li>
         <li class="nav-item d-none d-lg-block">
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=duongdt.bi9076@st.usth.edu.vn"
+            href="mailto:duongdt.bi9076@st.usth.edu.vn"
             target="_blank"
             class="nav-link"
-            ><i class="fas fa-mail-bulk" style="font-size: inherit"></i>
-            Gmail</a
-          >
+            >
+            <i class="fas fa-mail-bulk" style="font-size: inherit"></i>
+            Email
+          </a>
         </li>
       </ul>
     </nav>
@@ -165,21 +163,45 @@
                 </p>
               </div>
               <div class="card-body">
-                The main concern of this project is to develop a low-cost solar irradiance monitoring system. The idea is to measure the illuminance (express in <em>lux</em>), then calculate the Global Horizontal Irradiance (express in <em>W/m<sup>2</sup></em>). Illuminance is a measure of photometric flux per unit area or visible flux density,  and is typically expressed in <em>lux (lumens per square meter)</em>. Luminous flux is a measure of power of visible light. Photopic flux, expressed in lumens, is weighted to match the responsibility of the human eye, which is most sensitive to yellow-green. Irradiance is a measure of radiometric flux per unit area or flux density, and is typically expressed in Watt per square meter. The relationship between illuminance and irradiance is often found to be linear. Hence, the illuminance measurement could serve as an indirect measurement of irradiance.
-                <hr class="my-1" />
-                Illuminance sensor <em>GY-49 (MAX44009)</em> is used to measure the illuminance, and sensor DHT11 is used to measure the temperature and humidity.
-                <br/><br/>
-                Module ESP8266 NODEMCU acts as the micro-controller as well as the communication module. ESP8266 is made for wireless communication purpose using 2.4GHz wifi connection. The ESP8266 NODEMCU module is integrated with GPIO pin making it able to read digital and analog input (micro-controller capability), and also CP2102 module in order to upload code to the micro-controller through USB connection. The connection between sensors and micro-controller is shown in the figure below.
+                <p class="text-justify">
+                  The main concern of this project is to develop a low-cost solar irradiance monitoring system. The idea is to measure the illuminance (express in <em>lux</em>), then calculate the Global Horizontal Irradiance (express in <em>W/m<sup>2</sup></em>). Illuminance is a measure of photometric flux per unit area or visible flux density,  and is typically expressed in <em>lux (lumens per square meter)</em>. Luminous flux is a measure of power of visible light. Photopic flux, expressed in lumens, is weighted to match the responsibility of the human eye, which is most sensitive to yellow-green. Irradiance is a measure of radiometric flux per unit area or flux density, and is typically expressed in Watt per square meter. The relationship between illuminance and irradiance is often found to be linear. Hence, the illuminance measurement could serve as an indirect measurement of irradiance.
+                </p>
                 
-                <br/><br/>
-
                 <hr class="my-1" />
-                Descibe the location of installation
+                <p class="text-justify">
+                  Illuminance sensor <em>GY-49 (MAX44009)</em> is used to measure the illuminance, and sensor DHT11 is used to measure the temperature and humidity. GY-49 is chosen because of its wide range of measurement, from 0 to 188,000 lux, making it suitable for measuring outdoor illuminance. DHT11 is popular in IoT application thanks to its low-cost and easy-to-use characteristics.
+                </p>
+                <p class="text-justify">
+                  Module ESP8266 NODEMCU acts as the micro-controller as well as the communication module. ESP8266 is made for wireless communication purpose using 2.4GHz wifi connection. The ESP8266 NODEMCU module is integrated with GPIO pins, making it able to read digital and analog input (micro-controller capability), and also CP2102 module in order to upload code to the micro-controller through USB connection. The connection between sensors and micro-controller is shown in <em>Figure 1</em>, and the real circuit is shown in <em>Figure 2</em>.
+                </p>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <figure class="figure col-3">
+                      <img src="CircuitDiagram.png" class="rounded  mx-auto my-auto d-inline" style="max-width: 320px; height: auto;">
+                      <figcaption class="figure-caption text-center"><strong>Figure 1.</strong> Circuit Diagram</figcaption>
+                    </figure>
+                    <div class="col-3"></div>
+                    <figure class="figure col-3">
+                      <img src="CircuitDiagram.png" class="rounded  mx-auto my-auto d-inline" style="max-width: 320px; height: auto;">
+                      <figcaption class="figure-caption text-center"><strong>Figure 2.</strong> Real Circuit</figcaption>
+                    </figure>
+                    <div class="col-1"></div>
+                  </div>
+                </div>
+                
+                <hr class="my-1" />
+                <p class="text-justify">The system is installed outside the CleanED laboratory, on the fifth floor of USTH building (18 Hoang Quoc Viet, Hanoi).</p>
+                Insert a picture of installed system here.
               </div>
             </div>
             <div class="card mb-4">
               <div class="card-header"><h3>About this website</h3></div>
-              <div class="card-body">Description of this website</div>
+              <div class="card-body">
+                <p class="text-justify">
+                  This website is orgranized into 3 pages: Home, Charts, Table. The <strong><em>Homepage</em></strong> (this page) includes general information about the project. The <strong><em>Charts</em></strong> page displays the collected data in the form of line graph, while the <strong><em>Tables</em></strong> page display them in the form of table. The data on both pages are updated in real-time. The raw data could be downloaded on the <strong><em>Tables</em></strong> page in csv and excel format.
+                </p>
+              </div>
             </div>
           </div>
         </main>
@@ -208,11 +230,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/scripts.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> -->
-    <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
-    <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
-    <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
-    <!-- <script src="assets/demo/datatables-demo.js"></script> -->
   </body>
 </html>
