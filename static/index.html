@@ -126,49 +126,6 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                 Home
               </a>
-              <!-- <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div> -->
               <div class="sb-sidenav-menu-heading">Display</div>
               <a class="nav-link" href="charts.html">
                 <div class="sb-nav-link-icon">
@@ -208,26 +165,14 @@
                 </p>
               </div>
               <div class="card-body">
-                The main concern of this project is to develop a low-cost solar
-                irradiance monitoring system. The idea is to measure the
-                illuminance (express in <em>lux</em>), then calculate the Global
-                Horizontal Irradiance (express in <em>W/m<sup>2</sup></em
-                >). Illuminance is a measure of photometric flux per unit area
-                or visible flux density, and is typically expressed in
-                <em>lux (lumens per square meter)</em>. Luminous flux is a
-                measure of power of visible light. Photopic flux, expressed in
-                lumens, is weighted to match the responsibility of the human
-                eye, which is most sensitive to yellow-green. Irradiance is a
-                measure of radiometric flux per unit area or flux density, and
-                is typically expressed in Watt per square meter. The
-                relationship between illuminance and irradiance is often found
-                to be linear. Hence, the illuminance measurement could serve as
-                an indirect measurement of irradiance.
+                The main concern of this project is to develop a low-cost solar irradiance monitoring system. The idea is to measure the illuminance (express in <em>lux</em>), then calculate the Global Horizontal Irradiance (express in <em>W/m<sup>2</sup></em>). Illuminance is a measure of photometric flux per unit area or visible flux density,  and is typically expressed in <em>lux (lumens per square meter)</em>. Luminous flux is a measure of power of visible light. Photopic flux, expressed in lumens, is weighted to match the responsibility of the human eye, which is most sensitive to yellow-green. Irradiance is a measure of radiometric flux per unit area or flux density, and is typically expressed in Watt per square meter. The relationship between illuminance and irradiance is often found to be linear. Hence, the illuminance measurement could serve as an indirect measurement of irradiance.
                 <hr class="my-1" />
-                An illuminance sensor, namely <em>GY-49 (MAX44009)</em>, is
-                calibrated with a pyranometer to approximate the relationship
-                between irradiance and illuminance. <br />Include a figure for
-                calibration <br />Describe the process
+                Illuminance sensor <em>GY-49 (MAX44009)</em> is used to measure the illuminance, and sensor DHT11 is used to measure the temperature and humidity.
+                <br/><br/>
+                Module ESP8266 NODEMCU acts as the micro-controller as well as the communication module. ESP8266 is made for wireless communication purpose using 2.4GHz wifi connection. The ESP8266 NODEMCU module is integrated with GPIO pin making it able to read digital and analog input (micro-controller capability), and also CP2102 module in order to upload code to the micro-controller through USB connection. The connection between sensors and micro-controller is shown in the figure below.
+                
+                <br/><br/>
+
                 <hr class="my-1" />
                 Descibe the location of installation
               </div>
